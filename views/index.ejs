@@ -22,9 +22,10 @@
             <div class="btn-id" onclick="window.location.href='/posts/<%= post.id %>';">Show In Detail</div>
             <div class="btn-id" onclick="window.location.href='/posts/<%= post.id %>/edit';">Edit</div>
             
-            <form method="POST" action="/posts/<%= post.id %>?_method=DELETE" style="display:inline;">
+               <form method="POST" action="/posts/<%=post.id%>?_method=DELETE" style="display: inline; all: unset;">
               <button class="btn-id" type="submit">Delete Post</button>
             </form>
+            
           </div>
         </div>
       <% } %>
