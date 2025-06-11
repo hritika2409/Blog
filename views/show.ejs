@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post in Details</title>
+    <link rel="stylesheet" href="/style.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h2>Here Is Your Post In Details!! </h2>
+     <br />
+    <h3>Post id : <%= post.id %></h3>
+    <br />
+    <div class="post-card">
+        <h3 class="user">@<%= post.username %></h3>
+        <h4 class="content"><%= post.content %></h4>
+      </div>
+</body>
+</html>

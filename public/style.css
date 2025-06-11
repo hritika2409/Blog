@@ -1,0 +1,189 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    color: #333;
+    padding: 30px 20px;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  /* Header */
+  header h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  /* Post Card */
+  .post-card {
+    background: linear-gradient(145deg, #ffe8d6, #ffe4b5);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+  
+  .post-card h3 {
+    color: #d1495b;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .post-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #3d405b;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2.2rem;
+    }
+  
+    .post-card {
+      padding: 20px;
+    }
+  
+    .post-card h3 {
+      font-size: 1.1rem;
+    }
+  
+    .post-card p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Form Styling */
+form {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #ffffffcc;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input,
+form textarea {
+  font-family: 'Quicksand', sans-serif;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #8e44ad;
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  background-color: #fdfdfd;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #d35400;
+  box-shadow: 0 0 4px #d35400aa;
+}
+
+form textarea {
+  min-height: 120px;
+}
+
+form button {
+  font-family: 'Quicksand', sans-serif;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #8e44ad;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #6c3483;
+}
+
+/* Center the button on the page */
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px; /* Makes container fill the viewport vertically */
+}
+
+/* Style and center text inside the button */
+
+/* Button styling */
+
+.btn-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-start;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 200px;
+  background-color: #d35400;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-id {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 150px;
+  background-color: #d35400;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.btn:hover {
+  background-color: #e67e22;
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+@media (max-width: 600px) {
+  form {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  form input,
+  form textarea {
+    font-size: 0.95rem;
+  }
+}
