@@ -1,22 +1,21 @@
 const express = require("express");
-const methodOverride = require('method-override')
-const app = express();
-const port = process.env.PORT || 3000;
-
+const methodOverride = require('method-override');
 const path = require("path");
 const { v4: uuidv4 } = require('uuid');
 
+const app = express();
+const port = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended:  true }));
+// Middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "public"))); // Serve static files
 
+// View engine setup
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.set(express.static(path.join(__dirname, "public")));
-
-
+// Dummy posts
 let posts = [
     {
         id: uuidv4(),
@@ -35,19 +34,19 @@ let posts = [
     },
 ];
 
-
-app.get("/posts" , (req, res) => {
-    res.render("index.ejs", { posts })
+// Routes
+app.get("/posts", (req, res) => {
+    res.render("index.ejs", { posts });
 });
 
-app.get("/posts/new" , (req, res) => {
-    res.render("new.ejs")
+app.get("/posts/new", (req, res) => {
+    res.render("new.ejs");
 });
 
-app.get("/posts/:id" , (req, res) => {
-   let { id } = req.params;
-   let post = posts.find((p) => id === p.id);
- res.render("show.ejs", { post });
+app.get("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    let post = posts.find((p) => id === p.id);
+    res.render("show.ejs", { post });
 });
 
 app.post("/posts", (req, res) => {
@@ -57,19 +56,20 @@ app.post("/posts", (req, res) => {
     res.redirect("/posts");
 });
 
+app.get("/posts/:id/edit", (req, res) => {
+    let { id } = req.params;
+    let post = posts.find((p) => id === p.id);
+    res.render("edit.ejs", { post });
+});
+
 app.patch("/posts/:id", (req, res) => {
     let { id } = req.params;
     let newContent = req.body.content;
     let post = posts.find((p) => id === p.id);
-    post.content = newContent;
-    console.log(post);
+    if (post) {
+        post.content = newContent;
+    }
     res.redirect("/posts");
-});
-
-app.get("/posts/:id/edit", (req, res) => {
-    let { id } = req.params;
-    let post = posts.find((p) => id === p.id);
-    res.render("edit.ejs", { post }); // pass the post to the template
 });
 
 app.delete("/posts/:id", (req, res) => {
@@ -78,6 +78,7 @@ app.delete("/posts/:id", (req, res) => {
     res.redirect("/posts");
 });
 
+// Start the server
 app.listen(port, () => {
-    console.log("listening to port : 8080");
-})
+    console.log(`Listening on port: ${port}`);
+});
