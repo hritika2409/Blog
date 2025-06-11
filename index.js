@@ -34,6 +34,11 @@ let posts = [
     },
 ];
 
+// Redirect root route to /posts
+app.get("/", (req, res) => {
+    res.redirect("/posts");
+});
+
 // Routes
 app.get("/posts", (req, res) => {
     res.render("index.ejs", { posts });
